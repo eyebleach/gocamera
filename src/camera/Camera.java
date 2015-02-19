@@ -80,10 +80,37 @@ public class Camera {
      * @return json-format
      */
     public String getMediaList() {
-        String mediaList = null;
-        mediaList = getFile("10.5.5.9");
+        String content = "";
         
-        return mediaList;
+        try {
+            Socket sock = new Socket(InetAddress.getByName("10.5.5.9"), 8080);
+            PrintWriter out = new PrintWriter(sock.getOutputStream());
+            
+            out.print("GET /gp/gpMediaList HTTP/1.0\r\n");
+            out.print("Connection: Keep-Alive\r\n");
+            out.print("\r\n");
+            out.flush();
+            
+            BufferedReader in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+            
+            String tmp = null;
+            
+            while((tmp = in.readLine()) != null) {
+                if(tmp.startsWith("{")) {
+                    content = tmp;
+                }
+            }
+            
+            out.close();
+            in.close();
+            sock.close();
+                        
+        } catch(MalformedURLException e) {
+            System.err.println(e.getMessage());
+        } catch(IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return content;   
     }
     
     /**
@@ -241,36 +268,4 @@ public class Camera {
         
         return ret;
     }
-    
-    private String getFile(String cmd) {
-        String content = "";
-        
-        try {
-            Socket sock = new Socket(InetAddress.getByName(cmd), 8080);
-            PrintWriter out = new PrintWriter(sock.getOutputStream());
-            
-            out.print("GET /gp/gpMediaList HTTP/1.0\r\n");
-            out.print("Connection: Keep-Alive\r\n");
-            out.print("\r\n");
-            out.flush();
-            
-            BufferedReader in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
-            String tmp = null;
-            while((tmp = in.readLine()) != null) {
-                if(tmp.startsWith("{")) {
-                    content = tmp;
-                }
-            }
-            out.close();
-            in.close();
-            sock.close();
-                        
-        } catch(MalformedURLException e) {
-            e.printStackTrace();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-     return content;   
-    }
-    
 }
