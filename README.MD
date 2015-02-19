@@ -2,7 +2,7 @@
 A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
 ###Get
-[Download jar-library](http://www.patasoft.se)
+[Download jar-library](http://www.patasoft.se/zip/gocamera-v1.0.zip)
 
 ### Usage
 Import with `import camera.*;`
