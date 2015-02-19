@@ -75,9 +75,16 @@ public class Camera {
         return status;
     }
     
-    /* DEBUG
-    public String getMediaList() { "http://10.5.5.9:8080/gp/gpMediaList" }
-    */
+    /**
+     * Get list of media in /videos/DCIM/100GOPRO/-directory.
+     * @return json-format
+     */
+    public String getMediaList() {
+        String mediaList = null;
+        mediaList = getFile("10.5.5.9");
+        
+        return mediaList;
+    }
     
     /**
      * Get camera-name, not same as the WiFi-name.
@@ -234,30 +241,29 @@ public class Camera {
         
         return ret;
     }
-    /* DEBUG
+    
     private String getFile(String cmd) {
         String content = "";
         
         try {
-            URL url = new URL(cmd);
+            Socket sock = new Socket(InetAddress.getByName(cmd), 8080);
+            PrintWriter out = new PrintWriter(sock.getOutputStream());
             
-            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-            conn.setChunkedStreamingMode(0);
-            conn.connect();
+            out.print("GET /gp/gpMediaList HTTP/1.0\r\n");
+            out.print("Connection: Keep-Alive\r\n");
+            out.print("\r\n");
+            out.flush();
             
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-           
-            char[] buf = new char[4096];
-            int len = 0;
-            
-            while(in.read(buf, 0, buf.length) >= 0) {
-                System.out.print("hej");
+            BufferedReader in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+            String tmp = null;
+            while((tmp = in.readLine()) != null) {
+                if(tmp.startsWith("{")) {
+                    content = tmp;
+                }
             }
-            
-            content = String.valueOf(buf);
-            
+            out.close();
             in.close();
-            
+            sock.close();
                         
         } catch(MalformedURLException e) {
             e.printStackTrace();
@@ -266,6 +272,5 @@ public class Camera {
         }
      return content;   
     }
-    */
     
 }
