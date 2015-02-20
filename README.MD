@@ -2,6 +2,9 @@
 A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
 ###Functions
+
+[Example screenshot](http://www.drpata.nu/img/gocamera_example.png)
+
 A library with few but essential functions that can control your camera over wifi.
 
 * Record videos and capture photos
