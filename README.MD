@@ -3,9 +3,11 @@ A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
 ###Get
 [Download latest jar](http://www.patasoft.se/zip/gocamera-v1.1.zip)
-v1.1
+
+**v1.1** - 2015-02-19
 >getMediaList-method added and merged with getFile-method
-V1.0
+
+**v1.0** - 2015-02-18
 >Initial release
 
 ### Usage
