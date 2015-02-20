@@ -1,6 +1,19 @@
 # Gocamera
 A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
+###Functions
+A library with few but essential functions that can control your camera over wifi.
+
+* Record videos and capture photos
+
+* Change capture-modes (video, photo, burst, timelapse)
+
+* Get list of media currently stored on SD-card in json-format
+
+* Get information about the camera, ex. battery left, videos/photos taken, firmware-version etc.
+
+* ...and more!
+
 ###Get
 [Download latest jar](http://www.patasoft.se/zip/gocamera-v1.1.zip)
 
