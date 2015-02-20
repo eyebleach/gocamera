@@ -15,7 +15,7 @@ A library with few but essential functions that can control your camera over wif
 * ...and more!
 
 ###Get
-[Download latest jar](http://www.patasoft.se/zip/gocamera-v1.1.zip)
+[Download latest jar](http://www.drpata.nu/download.php?file=gocamera-v1.1.zip)
 
 **v1.1** - 2015-02-19
 >getMediaList-method added and merged with getFile-method
