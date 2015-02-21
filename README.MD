@@ -2,8 +2,7 @@
 A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
 ###Functions
-
-[Example screenshot](http://www.drpata.nu/img/gocamera_example.png)
+To download latest compiled jar or see documentation, see the [gocamera webpage](http://www.drpata.nu/gocamera)
 
 A library with few but essential functions that can control your camera over wifi.
 
@@ -17,9 +16,7 @@ A library with few but essential functions that can control your camera over wif
 
 * ...and more!
 
-###Get
-[Download latest jar](http://www.drpata.nu/download.php?file=gocamera-v1.1.zip)
-
+###Versions
 **v1.1** - 2015-02-19
 >getMediaList-method added and merged with getFile-method
 
@@ -29,7 +26,7 @@ A library with few but essential functions that can control your camera over wif
 ### Usage
 Import with `import camera.*;`
 
-See included documentation for more information.
+See included documentation or webpage for more information.
 
 ### Tested on
 >Gopro Hero 3 White edition
