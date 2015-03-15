@@ -2,7 +2,7 @@
 A [Gopro](http://www.gopro.com)-compatible camera control library (Java).
 
 ###Functions
-To download latest compiled jar [click here](http://10.0.1.13/file.php?l=download&file=gocamera-v1.1.zip)
+To download latest compiled jar [click here](http://patasoft.se/file.php?l=download&file=gocamera-v1.1.zip)
 
 A library with few but essential functions that can control your camera over wifi.
 
